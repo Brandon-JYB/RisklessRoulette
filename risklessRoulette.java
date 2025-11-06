@@ -35,62 +35,16 @@ public class risklessRoulette {
                     System.out.println("❌ Invalid choice. Please pick a number from above.");
                     continue;
             }
-
-            System.out.print("\nEnter your bet amount: ₱");
-            double bet = 0;
             
-            while (true) { // Catch error for bet
-                String noSpac = sc.nextLine().trim();
-
-                if (noSpac.contains(" ")) { // No space
-                    System.out.println("❌ Invalid input. No spaces allowed.\n");
-                    System.out.print("Enter your bet amount: ₱");
-                    continue;
-                }
-
-                if (noSpac.isEmpty()){ // Only space
-                    System.out.println("❌ Invalid input. Enter something in the input.\\n");
-                    System.out.println("Enter your bet amount: ₱");
-                    continue;
-                }
-
-                try { // Try
-                    bet = Double.parseDouble(noSpac);
-                }
-                catch (NumberFormatException err) { // Catch
-                    System.out.println("❌ Invalid input. Please enter a number.\n");
-                    System.out.print("Enter your bet amount: ₱");
-                    continue;
-                }
-
-                if (bet <= 0) { // Broke ass bitch
-                    System.out.println("❌ Invalid bet. You cannot bet nothing or negative amounts.\n");
-                }
-                else if (bet > player.getBal()) { // Too much bet
-                    System.out.println("❌ Invalid bet. Must be between ₱1 and your balance (₱" + player.getBal() + ").\n");
-                }
-                else { // Goods
-                    break;
-                }
-
-                System.out.print("Enter your bet amount: ₱");
-            }
+            double bet = InputChecker.betCheck(sc, player, "\nEnter your bet amount: ₱");   
             
             gun.load();
-            System.out.print("Pull the trigger? (y/n): ");
-            String pull = sc.nextLine().trim();
 
-            while (!pull.equalsIgnoreCase("y") && !pull.equalsIgnoreCase("n")) { // Error catcher trigger
-                System.out.println("❌ Invalid input. \"Y\" or \"N\" only.\n");
-                System.out.print("Pull the trigger? (y/n): ");
-                pull = sc.nextLine().trim();
-            }
-
+            boolean pull = InputChecker.yesNoCheck(sc, "Pull the trigger? (y/n): ");            
             System.out.print("\n");
-
-            if (pull.equalsIgnoreCase("y")) { // Play
-                String cont = "";
-                while (!cont.equalsIgnoreCase("n")) { // Continous play
+            if (pull) { // Play
+                boolean cont = true;
+                while (!cont) { // Continous play
                     if (gunChoice == 3) { // Pistol
                         System.out.println("Bang! The " + gun.getGunName() + " fired!");
                         System.out.println("You're dead! Tanga pistol yan, anong expected mo?");
@@ -112,23 +66,15 @@ public class risklessRoulette {
                         player.addBalance(winnings);
                     }
                     
-                    System.out.print("Continue? (y/n): ");
-                    cont = sc.nextLine().trim();
-                
-                    while (!cont.equalsIgnoreCase("y") && !cont.equalsIgnoreCase("n")) { // Error catcher
-                        System.out.println("❌ Invalid input. \"Y\" or \"N\" only.\n");
-                        System.out.print("Continue? (y/n): ");
-                        cont = sc.nextLine().trim();
-                    }
-
-                    if (cont.equalsIgnoreCase("n")){ // Quitter
+                    cont = InputChecker.yesNoCheck(sc, "Continue? (y/n): ");
+            
+                    if (!cont){ // Quitter
                         break;
                     }
 
                     System.out.print("\n");
                 }
             }
-            
             else { // Duwag
                 System.out.println("You backed out this round. No bet placed.");
             }
@@ -136,27 +82,17 @@ public class risklessRoulette {
             if (!player.isAlive()){ // Boom headshot
                 break;
             }
-
             if (player.getBal() <= 0) { // Bankrupt
                 System.out.println("\nYou ran out of money. Game over!");
                 player.setAlive(false);
             }
 
-            System.out.print("Do you want to play another round? (y/n): ");
-            String again = sc.nextLine().trim();
-
-            while (!again.equalsIgnoreCase("y") && !again.equalsIgnoreCase("n")) { // Error catcher Y or N
-                System.out.println("❌ Invalid input. \"Y\" or \"N\" only.\n");
-                System.out.print("Do you want to play another round? (y/n): ");
-                again = sc.nextLine().trim();
-            }
-
-            if (!again.equalsIgnoreCase("y")){ // Player said no
+            Boolean again = InputChecker.yesNoCheck(sc, "Do you want to play another round? (y/n): ");
+            if (!again){ // Player said no
                 break;  
             }
 
             System.out.print("\n");
-
             }
         
         System.out.println("\nFinal Balance: ₱" + player.getBal());
@@ -201,7 +137,7 @@ class InputChecker {
         }
     }
 
-    public static String yesNoCheck(Scanner sc, String say) {
+    public static Boolean yesNoCheck(Scanner sc, String say) {
         String input;
         while (true) { // Checking string
             System.out.print(say);
@@ -217,7 +153,12 @@ class InputChecker {
             }
 
             if (input.equalsIgnoreCase("y") || input.equalsIgnoreCase("n")) { // Goods
-                return input.toLowerCase();
+                if (input.equalsIgnoreCase("y")){
+                    return true;
+                }
+                else{
+                    return false;
+                }
             }
 
             System.out.println("❌ Invalid input. \"Y\" or \"N\" only.\n");
@@ -275,7 +216,7 @@ class InputChecker {
                 }
 
                 try { // Try
-                    gunChoice = Interger.parseInt(input);
+                    gunChoice = Integer.parseInt(input);
                 }
                 catch (NumberFormatException e) { // Catch
                     System.out.println("❌ Invalid input. Please enter a number.\n");
