@@ -11,8 +11,6 @@ public class risklessRoulette {
         Player player = new Player(name, 1000.0);
         Gun gun = null;
 
-        // Catch spaces errors!!!!!
-
         while (player.isAlive() && player.getBal() > 0) { // Playing
             System.out.println("\nYour balance: ₱" + player.getBal());
             System.out.println("Choose your weapon:");
