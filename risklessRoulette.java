@@ -37,7 +37,7 @@ public class risklessRoulette {
             
             double bet = InputChecker.betCheck(sc, player, "\nEnter your bet amount: ₱");   
             
-            int bullet = InputChecker.bulletCheck(sc, gun, "How many bullets would you like to chamber?: ");
+            int bullet = InputChecker.bulletCheck(sc, gun, "\nHow many bullets would you like to chamber?: ");
             
             gun.load();
 
@@ -61,7 +61,7 @@ public class risklessRoulette {
                         break;
                     }
                     else { // Suerte
-                        double winnings = bet * gun.rewardMult();
+                        double winnings = bet * gun.rewardMult(bullet);
                         System.out.println("Click! No bullet in the chamber. You live!\n");
                         System.out.println("You won ₱" + winnings + "!");
                         player.addBalance(winnings);
@@ -247,7 +247,7 @@ abstract class Gun {
     public abstract void load();
     public abstract boolean fire(int bullets);
     public abstract String getGunName();
-    public abstract double rewardMult();
+    public abstract double rewardMult(int bullets);
 }
 
 class Revolver extends Gun { // Revolver
@@ -292,8 +292,8 @@ class Revolver extends Gun { // Revolver
     }
 
     @Override
-    public double rewardMult() { // Reward
-        return 1.5*bullets();
+    public double rewardMult(int bullets) { // Reward
+        return 1.5*bullets;
     }
 }
 
@@ -338,7 +338,7 @@ class DoubleBarrel extends Gun { // Double Barrel
     }
 
     @Override
-    public double rewardMult() { // Reward
+    public double rewardMult(int bullets) { // Reward
         return 3.0;
     }
 }
@@ -384,7 +384,7 @@ class Pistol extends Gun { // Pistol
     }
 
     @Override
-    public double rewardMult() { // "Reward" lol
+    public double rewardMult(int bullets) { // "Reward" lol
         return 5.0;
     }
 }
