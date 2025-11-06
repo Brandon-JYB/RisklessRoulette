@@ -37,6 +37,8 @@ public class risklessRoulette {
             
             double bet = InputChecker.betCheck(sc, player, "\nEnter your bet amount: ₱");   
             
+            int bullets = InputChecker.bulletCheck(sc, gun, "How many bullets would you like to chamber?: ");
+            
             gun.load();
 
             boolean pull = InputChecker.yesNoCheck(sc, "\nPull the trigger? (y/n): ");            
@@ -267,9 +269,23 @@ class Revolver extends Gun { // Revolver
 
     @Override
     public boolean fire() { // Bang!
-        int firePos = random.nextInt(totCham);
-        return (firePos == bullPos);
+        int bullets = bullets();
+        Random rand = new Random();
+        boolean[] chamber = new boolean[totCham];
+        
+        int bulletsChambed = 0;
+        while (bulletsChambed < bullets) { // Inserting bullets
+            int pos = rand.nextInt(totCham);
+            if (!chamber[pos]) {
+                chamber[pos] = true;
+                bulletsChambed++;
+            }
+        }
+
+        int firePos = rand.nextInt(totCham);
+        return chamber[firePos];
     }
+
 
     @Override
     public String getGunName() { // Name
