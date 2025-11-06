@@ -294,7 +294,7 @@ class Revolver extends Gun { // Revolver
 
     @Override
     public double rewardMult() { // Reward
-        return 1.5;
+        return 1.5*bullets();
     }
 }
 
