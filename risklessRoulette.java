@@ -317,8 +317,21 @@ class DoubleBarrel extends Gun { // Double Barrel
 
     @Override
     public boolean fire() { // Bang!
-        int firePos = random.nextInt(totCham);
-        return (firePos == bullPos);
+        int bullets = bullets();
+        Random rand = new Random();
+        boolean[] chamber = new boolean[totCham];
+        
+        int bulletsChambed = 0;
+        while (bulletsChambed < bullets) { // Inserting bullets
+            int pos = rand.nextInt(totCham);
+            if (!chamber[pos]) {
+                chamber[pos] = true;
+                bulletsChambed++;
+            }
+        }
+
+        int firePos = rand.nextInt(totCham);
+        return chamber[firePos];
     }
 
     @Override
@@ -350,8 +363,22 @@ class Pistol extends Gun { // Pistol
     }
 
     @Override
-    public boolean fire() { // Obviously nothing random
-        return true;
+    public boolean fire() { // Bang!
+        int bullets = bullets();
+        Random rand = new Random();
+        boolean[] chamber = new boolean[totCham];
+        
+        int bulletsChambed = 0;
+        while (bulletsChambed < bullets) { // Inserting bullets
+            int pos = rand.nextInt(totCham);
+            if (!chamber[pos]) {
+                chamber[pos] = true;
+                bulletsChambed++;
+            }
+        }
+
+        int firePos = rand.nextInt(totCham);
+        return chamber[firePos];
     }
 
     @Override
