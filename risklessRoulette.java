@@ -37,7 +37,7 @@ public class risklessRoulette {
             
             double bet = InputChecker.betCheck(sc, player, "\nEnter your bet amount: ₱");   
             
-            int bullets = InputChecker.bulletCheck(sc, gun, "How many bullets would you like to chamber?: ");
+            int bullet = InputChecker.bulletCheck(sc, gun, "How many bullets would you like to chamber?: ");
             
             gun.load();
 
@@ -53,7 +53,7 @@ public class risklessRoulette {
                         player.subtractBalance(player.getBal());
                         break;
                     }
-                    if (gun.fire()) { // Boom headshot
+                    if (gun.fire(bullet)) { // Boom headshot
                         System.out.println("The " + gun.getGunName() + " fired!\n");
                         System.out.println("The bullet went through your head. You died!");
                         player.setAlive(false);
@@ -245,7 +245,7 @@ abstract class Gun {
 
     public abstract int bullets();
     public abstract void load();
-    public abstract boolean fire();
+    public abstract boolean fire(int bullets);
     public abstract String getGunName();
     public abstract double rewardMult();
 }
@@ -268,8 +268,7 @@ class Revolver extends Gun { // Revolver
     }
 
     @Override
-    public boolean fire() { // Bang!
-        int bullets = bullets();
+    public boolean fire(int bullets) { // Bang!
         Random rand = new Random();
         boolean[] chamber = new boolean[totCham];
         
@@ -316,8 +315,7 @@ class DoubleBarrel extends Gun { // Double Barrel
     }
 
     @Override
-    public boolean fire() { // Bang!
-        int bullets = bullets();
+    public boolean fire(int bullets) { // Bang!
         Random rand = new Random();
         boolean[] chamber = new boolean[totCham];
         
@@ -353,7 +351,7 @@ class Pistol extends Gun { // Pistol
     @Override
     public int bullets(){ // How many bullets
         Scanner sc = new Scanner(System.in);
-        return InputChecker.bulletCheck(sc, this, "Load how many bullets (x2 multiplier for each bullet)?: ");
+        return InputChecker.bulletCheck(sc, this, "\nLoad how many bullets (x2 multiplier for each bullet)?: ");
     }
 
     @Override
@@ -363,8 +361,7 @@ class Pistol extends Gun { // Pistol
     }
 
     @Override
-    public boolean fire() { // Bang!
-        int bullets = bullets();
+    public boolean fire(int bullets) { // Bang!
         Random rand = new Random();
         boolean[] chamber = new boolean[totCham];
         
