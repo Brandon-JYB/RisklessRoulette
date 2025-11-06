@@ -19,7 +19,6 @@ public class risklessRoulette {
             System.out.println("3. Pistol (36 chambers, extremely high risk, x5 per chamber)");
 
             int gunChoice = InputChecker.gunCheck(sc, "Enter Choice: ");
-            sc.nextLine();
 
             switch (gunChoice) { // Pick a gun
                 case 1:
@@ -40,20 +39,20 @@ public class risklessRoulette {
             
             gun.load();
 
-            boolean pull = InputChecker.yesNoCheck(sc, "Pull the trigger? (y/n): ");            
+            boolean pull = InputChecker.yesNoCheck(sc, "\nPull the trigger? (y/n): ");            
             System.out.print("\n");
             if (pull) { // Play
                 boolean cont = true;
-                while (!cont) { // Continous play
+                while (cont) { // Continous play
                     if (gunChoice == 3) { // Pistol
-                        System.out.println("Bang! The " + gun.getGunName() + " fired!");
+                        System.out.println("Bang! The " + gun.getGunName() + " fired!\n");
                         System.out.println("You're dead! Tanga pistol yan, anong expected mo?");
                         player.setAlive(false);
                         player.subtractBalance(player.getBal());
                         break;
                     }
                     if (gun.fire()) { // Boom headshot
-                        System.out.println("The " + gun.getGunName() + " fired!");
+                        System.out.println("The " + gun.getGunName() + " fired!\n");
                         System.out.println("The bullet went through your head. You died!");
                         player.setAlive(false);
                         player.subtractBalance(player.getBal());
@@ -61,12 +60,12 @@ public class risklessRoulette {
                     }
                     else { // Suerte
                         double winnings = bet * gun.rewardMult();
-                        System.out.println("Click! No bullet in the chamber. You live!");
+                        System.out.println("Click! No bullet in the chamber. You live!\n");
                         System.out.println("You won ₱" + winnings + "!");
                         player.addBalance(winnings);
                     }
-                    
-                    cont = InputChecker.yesNoCheck(sc, "Continue? (y/n): ");
+
+                    cont = InputChecker.yesNoCheck(sc, "\nContinue? (y/n): ");
             
                     if (!cont){ // Quitter
                         break;
