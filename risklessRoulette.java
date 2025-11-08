@@ -14,10 +14,13 @@ public class risklessRoulette {
         while (player.isAlive() && player.getBal() > 0) { // Playing
             System.out.println("\nYour balance: ₱" + player.getBal());
             System.out.println("Choose your weapon:");
+            System.out.println("3. Desert Eagle (9 chambers, extremely, x5 per chamber)");
             System.out.println("1. Revolver (6 chambers, x1.5 per chamber)");
-            System.out.println("2. Double Barrel Shotgun (2 chambers, high risk, x3 per chamber)");
-            System.out.println("3. Desert Eagle (9 chambers, extremely high risk, x5 per chamber)");
-
+            System.out.println("4. Pepperbox Pistol (4 chambers, x2.5 per chamber)");
+            System.out.println("2. Double Barrel Shotgun (2 chambers, x3 per chamber)");
+  
+            // Des Eag = 1, rev 2, pep 3, doub 4
+            
             int gunChoice = InputChecker.gunCheck(sc, "Enter Choice: ");
 
             switch (gunChoice) { // Pick a gun
