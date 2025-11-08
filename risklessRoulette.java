@@ -14,24 +14,26 @@ public class risklessRoulette {
         while (player.isAlive() && player.getBal() > 0) { // Playing
             System.out.println("\nYour balance: ₱" + player.getBal());
             System.out.println("Choose your weapon:");
-            System.out.println("3. Desert Eagle (9 chambers, extremely, x5 per chamber)");
-            System.out.println("1. Revolver (6 chambers, x1.5 per chamber)");
-            System.out.println("4. Pepperbox Pistol (4 chambers, x2.5 per chamber)");
-            System.out.println("2. Double Barrel Shotgun (2 chambers, x3 per chamber)");
+            System.out.println("1. Desert Eagle (9 chambers, x5 per chamber)");
+            System.out.println("2. Revolver (6 chambers, x1.5 per chamber)");
+            System.out.println("3. Pepperbox Pistol (4 chambers, x2.5 per chamber)");
+            System.out.println("4. Double Barrel Shotgun (2 chambers, x3.5 per chamber)");
   
-            // Des Eag = 1, rev 2, pep 3, doub 4
             
             int gunChoice = InputChecker.gunCheck(sc, "Enter Choice: ");
 
             switch (gunChoice) { // Pick a gun
                 case 1:
-                    gun = new Revolver();
+                    gun = new desertEagle();
                     break;
                 case 2:
-                    gun = new DoubleBarrel();
+                    gun = new revolver();
                     break;
                 case 3:
-                    gun = new DesEag();
+                    gun = new pepperBox();
+                    break;
+                case 4:
+                    gun = new DoubleBarrel();
                     break;
                 default:
                     System.out.println("❌ Invalid choice. Please pick a number from above.");
@@ -253,101 +255,8 @@ abstract class Gun {
     public abstract double rewardMult(int bullets);
 }
 
-class Revolver extends Gun { // Revolver
-    public Revolver() { // Revolver mag size
-        totCham = 6;
-    }
-
-    @Override
-    public int bullets(){ // How many bullets
-        Scanner sc = new Scanner(System.in);
-        return InputChecker.bulletCheck(sc, this, "Load how many bullets (x2 multiplier for each bullet)?: ");
-    }
-
-    @Override
-    public void load() { // Load gun
-        bullPos = random.nextInt(totCham);
-        System.out.println("\nRevolver loaded.");
-    }
-
-    @Override
-    public boolean fire(int bullets) { // Bang!
-        Random rand = new Random();
-        boolean[] chamber = new boolean[totCham];
-        
-        int bulletsChambed = 0;
-        while (bulletsChambed < bullets) { // Inserting bullets
-            int pos = rand.nextInt(totCham);
-            if (!chamber[pos]) {
-                chamber[pos] = true;
-                bulletsChambed++;
-            }
-        }
-
-        int firePos = rand.nextInt(totCham);
-        return chamber[firePos];
-    }
-
-
-    @Override
-    public String getGunName() { // Name
-        return "Revolver";
-    }
-
-    @Override
-    public double rewardMult(int bullets) { // Reward
-        return 1.5*bullets;
-    }
-}
-
-class DoubleBarrel extends Gun { // Double Barrel
-    public DoubleBarrel() { // Two chambers
-        totCham = 2;
-    }
-
-    @Override
-    public int bullets(){ // How many bullets
-        Scanner sc = new Scanner(System.in);
-        return InputChecker.bulletCheck(sc, this, "Load how many bullets (x2 multiplier for each bullet)?: ");
-    }
-
-    @Override
-    public void load() { // 50%
-        bullPos = random.nextInt(totCham);
-        System.out.println("\nDouble Barrel Shotgun loaded.");
-    }
-
-    @Override
-    public boolean fire(int bullets) { // Bang!
-        Random rand = new Random();
-        boolean[] chamber = new boolean[totCham];
-        
-        int bulletsChambed = 0;
-        while (bulletsChambed < bullets) { // Inserting bullets
-            int pos = rand.nextInt(totCham);
-            if (!chamber[pos]) {
-                chamber[pos] = true;
-                bulletsChambed++;
-            }
-        }
-
-        int firePos = rand.nextInt(totCham);
-        return chamber[firePos];
-    }
-
-    @Override
-    public String getGunName() { // Name
-        return "Double Barrel Shotgun";
-    }
-
-    @Override
-    public double rewardMult(int bullets) { // Reward
-        return 3.0;
-    }
-}
-
-class DesEag extends Gun { // Desert Eagle
-    public DesEag() {  // Mag size
+class desertEagle extends Gun { // Desert Eagle
+    public desertEagle() {  // Mag size
         totCham = 9;
     }
 
@@ -389,6 +298,146 @@ class DesEag extends Gun { // Desert Eagle
     @Override
     public double rewardMult(int bullets) { // "Reward" lol
         return 5.0;
+    }
+}
+
+class revolver extends Gun { // Revolver
+    public revolver() { // Revolver mag size
+        totCham = 6;
+    }
+
+    @Override
+    public int bullets(){ // How many bullets
+        Scanner sc = new Scanner(System.in);
+        return InputChecker.bulletCheck(sc, this, "Load how many bullets (x1.5 multiplier for each bullet)?: ");
+    }
+
+    @Override
+    public void load() { // Load gun
+        bullPos = random.nextInt(totCham);
+        System.out.println("\nRevolver loaded.");
+    }
+
+    @Override
+    public boolean fire(int bullets) { // Bang!
+        Random rand = new Random();
+        boolean[] chamber = new boolean[totCham];
+        
+        int bulletsChambed = 0;
+        while (bulletsChambed < bullets) { // Inserting bullets
+            int pos = rand.nextInt(totCham);
+            if (!chamber[pos]) {
+                chamber[pos] = true;
+                bulletsChambed++;
+            }
+        }
+
+        int firePos = rand.nextInt(totCham);
+        return chamber[firePos];
+    }
+
+
+    @Override
+    public String getGunName() { // Name
+        return "Revolver";
+    }
+
+    @Override
+    public double rewardMult(int bullets) { // Reward
+        return 1.5*bullets;
+    }
+}
+
+class pepperBox extends Gun { // Pepperbox Pistol
+    public pepperBox() { // Revolver mag size
+        totCham = 4;
+    }
+
+    @Override
+    public int bullets(){ // How many bullets
+        Scanner sc = new Scanner(System.in);
+        return InputChecker.bulletCheck(sc, this, "Load how many bullets (x2.5 multiplier for each bullet)?: ");
+    }
+
+    @Override
+    public void load() { // Load gun
+        bullPos = random.nextInt(totCham);
+        System.out.println("\nPepperbox loaded.");
+    }
+
+    @Override
+    public boolean fire(int bullets) { // Bang!
+        Random rand = new Random();
+        boolean[] chamber = new boolean[totCham];
+        
+        int bulletsChambed = 0;
+        while (bulletsChambed < bullets) { // Inserting bullets
+            int pos = rand.nextInt(totCham);
+            if (!chamber[pos]) {
+                chamber[pos] = true;
+                bulletsChambed++;
+            }
+        }
+
+        int firePos = rand.nextInt(totCham);
+        return chamber[firePos];
+    }
+
+
+    @Override
+    public String getGunName() { // Name
+        return "Pepperbox Pistol";
+    }
+
+    @Override
+    public double rewardMult(int bullets) { // Reward
+        return 2.5*bullets;
+    }
+}
+
+class DoubleBarrel extends Gun { // Double Barrel
+    public DoubleBarrel() { // Two chambers
+        totCham = 2;
+    }
+
+    @Override
+    public int bullets(){ // How many bullets
+        Scanner sc = new Scanner(System.in);
+        return InputChecker.bulletCheck(sc, this, "Load how many bullets (x3.5 multiplier for each bullet)?: ");
+    }
+
+    @Override
+    public void load() { // 50%
+        bullPos = random.nextInt(totCham);
+        System.out.println("\nDouble Barrel Shotgun loaded.");
+    }
+
+    @Override
+    public boolean fire(int bullets) { // Bang!
+        Random rand = new Random();
+        boolean[] chamber = new boolean[totCham];
+        
+        int bulletsChambed = 0;
+        while (bulletsChambed < bullets) { // Inserting bullets
+            int pos = rand.nextInt(totCham);
+            if (!chamber[pos]) {
+                chamber[pos] = true;
+                bulletsChambed++;
+            }
+        }
+
+        int firePos = rand.nextInt(totCham);
+        return chamber[firePos];
+    }
+
+    @Override
+    public String getGunName() { // Name
+        return "Double Barrel Shotgun";
+    }
+
+    @Override
+    public double rewardMult(int bullets) { // Reward
+        return 3.5*bullets;
     }
 }
 
