@@ -16,7 +16,7 @@ public class risklessRoulette {
             System.out.println("Choose your weapon:");
             System.out.println("1. Revolver (6 chambers, x1.5 per chamber)");
             System.out.println("2. Double Barrel Shotgun (2 chambers, high risk, x3 per chamber)");
-            System.out.println("3. Pistol (36 chambers, extremely high risk, x5 per chamber)");
+            System.out.println("3. Desert Eagle (9 chambers, extremely high risk, x5 per chamber)");
 
             int gunChoice = InputChecker.gunCheck(sc, "Enter Choice: ");
 
@@ -28,7 +28,7 @@ public class risklessRoulette {
                     gun = new DoubleBarrel();
                     break;
                 case 3:
-                    gun = new Pistol();
+                    gun = new DesEag();
                     break;
                 default:
                     System.out.println("❌ Invalid choice. Please pick a number from above.");
@@ -46,7 +46,7 @@ public class risklessRoulette {
             if (pull) { // Play
                 boolean cont = true;
                 while (cont) { // Continous play
-                    if (gunChoice == 3) { // Pistol
+                    if (gunChoice == 3) { // Desert Eagle
                         System.out.println("Bang! The " + gun.getGunName() + " fired!\n");
                         System.out.println("You're dead! Tanga pistol yan, anong expected mo?");
                         player.setAlive(false);
@@ -343,9 +343,9 @@ class DoubleBarrel extends Gun { // Double Barrel
     }
 }
 
-class Pistol extends Gun { // Pistol
-    public Pistol() {  // Mag size
-        totCham = 36;
+class DesEag extends Gun { // Desert Eagle
+    public DesEag() {  // Mag size
+        totCham = 9;
     }
 
     @Override
@@ -357,7 +357,7 @@ class Pistol extends Gun { // Pistol
     @Override
     public void load() { // Bullet at top of magazine
         bullPos = 0;
-        System.out.println("\nPistol loaded.");
+        System.out.println("\nDesert Eagle loaded.");
     }
 
     @Override
@@ -380,7 +380,7 @@ class Pistol extends Gun { // Pistol
 
     @Override
     public String getGunName() { // Name
-        return "Pistol";
+        return "Desert Eagle";
     }
 
     @Override
