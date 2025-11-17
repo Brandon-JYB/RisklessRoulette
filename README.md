@@ -1,4 +1,4 @@
-<h1 align="center">/̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿  Riskless Roulette  /̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿</h1>
+#/’̿’̿ ̿ ̿̿ ̿̿ ̿̿  Riskless Roulette  /̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿
 
 
 ## Table of Contents
