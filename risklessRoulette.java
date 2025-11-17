@@ -82,7 +82,7 @@ public class risklessRoulette {
                 }
             }
             else { // Duwag
-                System.out.println("You backed out this round. No bet placed.");
+                System.out.println("You backed out this round.\n");
             }
 
             if (!player.isAlive()){ // Boom headshot
