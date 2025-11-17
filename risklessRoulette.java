@@ -13,7 +13,7 @@ public class risklessRoulette {
 
         while (player.isAlive() && player.getBal() > 0) { // Playing
             System.out.println("\nYour balance: ₱" + player.getBal());
-            System.out.println("Choose your weapon:");
+            System.out.println("\nChoose your weapon:");
             System.out.println("1. Desert Eagle (9 chambers, x5 per chamber)");
             System.out.println("2. Revolver (6 chambers, x1.5 per chamber)");
             System.out.println("3. Pepperbox Pistol (4 chambers, x2.5 per chamber)");
@@ -46,12 +46,12 @@ public class risklessRoulette {
             
             gun.load();
 
-            boolean pull = InputChecker.yesNoCheck(sc, "\nPlay again using the same gun? (y/n): ");            
+            boolean pull = InputChecker.yesNoCheck(sc, "\nPull the trigger? (y/n):");            
             System.out.print("\n");
             if (pull) { // Play
                 boolean cont = true;
                 while (cont) { // Continous play
-                    if (gunChoice == 3) { // Desert Eagle
+                    if (gunChoice == 1) { // Desert Eagle
                         System.out.println("Bang! The " + gun.getGunName() + " fired!\n");
                         System.out.println("You're dead! Tanga pistol yan, anong expected mo?");
                         player.setAlive(false);
@@ -72,7 +72,7 @@ public class risklessRoulette {
                         player.addBalance(winnings);
                     }
 
-                    cont = InputChecker.yesNoCheck(sc, "\nPull the trigger againz? (y/n): ");
+                    cont = InputChecker.yesNoCheck(sc, "\nPlay again using the same gun? (y/n): ");
             
                     if (!cont){ // Quitter
                         break;
@@ -93,7 +93,7 @@ public class risklessRoulette {
                 player.setAlive(false);
             }
 
-            Boolean again = InputChecker.yesNoCheck(sc, "Do you want to play another round? (y/n): ");
+            Boolean again = InputChecker.yesNoCheck(sc, "\nDo you want to play another round? (y/n): ");
             if (!again){ // Player said no
                 break;  
             }
