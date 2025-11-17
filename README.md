@@ -1,4 +1,4 @@
-#/’̿’̿ ̿ ̿̿ ̿̿ ̿̿  Riskless Roulette  /̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿
+# /’̿’̿ ̿ ̿̿ ̿̿ ̿̿  Riskless Roulette  /̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿
 
 
 ## Table of Contents
