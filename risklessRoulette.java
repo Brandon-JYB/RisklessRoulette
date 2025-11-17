@@ -20,7 +20,7 @@ public class risklessRoulette {
             System.out.println("4. Double Barrel Shotgun (2 chambers, x3.5 per chamber)");
   
             
-            int gunChoice = InputChecker.gunCheck(sc, "Enter Choice: ");
+            int gunChoice = InputChecker.gunCheck(sc, "\nEnter Choice: ");
 
             switch (gunChoice) { // Pick a gun
                 case 1:
@@ -46,7 +46,7 @@ public class risklessRoulette {
             
             gun.load();
 
-            boolean pull = InputChecker.yesNoCheck(sc, "\nPull the trigger? (y/n): ");            
+            boolean pull = InputChecker.yesNoCheck(sc, "\nPlay again using the same gun? (y/n): ");            
             System.out.print("\n");
             if (pull) { // Play
                 boolean cont = true;
@@ -72,7 +72,7 @@ public class risklessRoulette {
                         player.addBalance(winnings);
                     }
 
-                    cont = InputChecker.yesNoCheck(sc, "\nContinue? (y/n): ");
+                    cont = InputChecker.yesNoCheck(sc, "\nPull the trigger againz? (y/n): ");
             
                     if (!cont){ // Quitter
                         break;
@@ -112,7 +112,8 @@ class InputChecker {
         double bet;
         while (true) { // Checking bet
             System.out.print(say);
-            String input = sc.nextLine().trim();
+            String input = sc.nextLine();
+            input = input.trim();
 
             if (input.isEmpty()) { // Only  space
                 System.out.println("❌ Input cannot be empty.\n");
@@ -147,7 +148,8 @@ class InputChecker {
         String input;
         while (true) { // Checking string
             System.out.print(say);
-            input = sc.nextLine().trim();
+            input = sc.nextLine();
+            input = input.trim();
 
             if (input.isEmpty()) { // Only space
                 System.out.println("❌ Input cannot be empty.\n");
@@ -175,7 +177,8 @@ class InputChecker {
         int bullet;
         while (true) { // Checking bullets
             System.out.print(say);
-            String input = sc.nextLine().trim();
+            String input = sc.nextLine();
+            input = input.trim();
 
             if (input.isEmpty()) { // Only space
                 System.out.println("❌ Input cannot be empty.\n");
@@ -211,31 +214,33 @@ class InputChecker {
         
         while (true) { // Checking Gun Choice
             System.out.print(say);
-            String input = sc.nextLine().trim();
-                if (input.isEmpty()) { // Only space
-                    System.out.println("❌ Input cannot be empty.\n");
-                continue;
-                }
-                if (input.contains(" ")) { // No space
-                    System.out.println("❌ Invalid input. No spaces allowed.\n");
-                    continue;
-                }
+            String input = sc.nextLine();
+            input = input.trim();
 
-                try { // Try
-                    gunChoice = Integer.parseInt(input);
-                }
-                catch (NumberFormatException e) { // Catch
-                    System.out.println("❌ Invalid input. Please enter a number.\n");
-                    continue;
-                }
-
-                if (gunChoice <= 0 || gunChoice >4) { // Wait for updates
-                    System.out.println("❌ Invalid choice! Choose only from the given choices\n");
-                }
-                else { // Goods
-                    return gunChoice;
-                }
+            if (input.isEmpty()) { // Only space
+                System.out.println("❌ Input cannot be empty.\n");
+            continue;
             }
+            if (input.contains(" ")) { // No space
+                System.out.println("❌ Invalid input. No spaces allowed.\n");
+                continue;
+            }
+
+            try { // Try
+                gunChoice = Integer.parseInt(input);
+            }
+            catch (NumberFormatException e) { // Catch
+                System.out.println("❌ Invalid input. Please enter a number.\n");
+                continue;
+            }
+
+            if (gunChoice <= 0 || gunChoice >4) { // Wait for updates
+                System.out.println("❌ Invalid choice! Choose only from the given choices\n");
+            }
+            else { // Goods
+                return gunChoice;
+            }
+        }
     }
 }
 

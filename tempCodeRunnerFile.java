@@ -1,1 +1,1 @@
-nextLine
+bullets()
