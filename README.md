@@ -7,7 +7,27 @@
 - Game Description
 - Features & Mechanics
 
-# Introduction
-Welcome to Riskless Roulette, an eerie yet thrilling luck-based survival game where every pull of the trigger could either make you rich... or instantly end your run. This version is entirely digital, in contrast to traditional Russian Roulette, but the tension is real
+# 💥Introduction💥
+Welcome to Riskless Roulette, an eerie yet thrilling luck-based survival game where every pull of the trigger could either make you rich... or instantly end your run. This version is entirely digital, in contrast to traditional Russian Roulette, but the tension is real. Every gun has it own different number of chambers, money multiplier, and death odds. <br> 
 
+<i><strong>Step in, load your gun, bet everything you can, and pray before 'CLICK'</strong></i>
 
+# 📜Game Description📜
+Riskless Roulette is a Java programm game that simulates betting/gammbling using various firearms with each different chambers sizes and reward multipliers.<br><br>
+You start with <strong>₱1000</strong>, place a bet, choose your gun, load how many bullets you want, pull the trigger<br><br>
+<strong>Survive a shot</strong> -> multiply your bet based on the gun and chamber multiplier.<br>
+<strong>If a bullets came out</strong> -> you lose and your balance will be wiped out.<br><br>
+Every decision counts:
+- What gun will you trust?
+- How many bullets will you load?
+- How much will you bet?
+- Will you push your luck.... or walk away?
+
+# 🎮Features & Mechanics🎮
+Variations of Weapons (each weapons have different function)
+| Weapon                | Chamber Count | Multiplier      | Danger Level                               |
+| --------------------- | ------------- | --------------- | ------------------------------------------ |
+| Desert Eagle          | 9             | x5              | 💀 Instant death on trigger (always fires) |
+| Revolver              | 6             | x1.5 per bullet | ⚠️ Medium risk                             |
+| Pepperbox Pistol      | 4             | x2.5 per bullet | ⚠️ High risk                               |
+| Double Barrel Shotgun | 2             | x3.5 per bullet | 🔥 Very high risk                          |
