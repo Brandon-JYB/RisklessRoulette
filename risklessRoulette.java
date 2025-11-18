@@ -9,7 +9,7 @@ public class risklessRoulette {
         String name = sc.nextLine();
 
         Player player = new Player(name, 1000.0);
-        Gun gun = null;
+        Gun gun = null; 
 
         while (player.isAlive() && player.getBal() > 0) { // Playing
             System.out.println("\nYour balance: ₱" + player.getBal());
