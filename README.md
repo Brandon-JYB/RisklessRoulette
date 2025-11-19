@@ -31,3 +31,5 @@
   | Revolver              | 6             | x1.5 per bullet | ⚠️ Medium risk                             |
   | Pepperbox Pistol      | 4             | x2.5 per bullet | ⚠️ High risk                               |
   | Double Barrel Shotgun | 2             | x3.5 per bullet | 🔥 Very high risk                          |
+
+  # 
