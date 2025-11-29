@@ -39,3 +39,21 @@
   - Gun Class & Subclasses: Store gun-related data (name, chambers, multipliers) privately.
   - Input Validation: Handled entirely by the InputChecker utiility class.
   ### Inheritance
+  - <strong> desertEagle, revolver, pepperBox, and DoubleBarrel </strong> all inherit from the base <strong> Gun </strong> class.
+  - This allows them to share common behaviors such as firing, loading, and reward multipiers.
+  ### Abstraction
+  - The main game only interacts with the abstract behaviors of Gun, not its internal implementation.
+  - This hides complexity from the main program loop.
+  # 
+  
+  # Program Structure
+  ### Main Classes
+  - risklessRouletter: Contains the main game loop, user, prompts, and betting system.
+  - Player: Stores player name, balance, and life status. Handles adding or subtracting money.
+  - Gun (Abstract): Base class for all guns. Defines shared gun properties and methods (chambers, firing logic, multiplier).
+  - InputChecker: Handles user input validation such as bet amounts, yes/no prompts, and gun selection.
+  ### Gun Subclasses
+  - desertEagle: 9 chambers, highest risk.
+  - revolver: 6 chambers.
+  - pepperBox: 4 chambers.
+  - DoubleBarrel: 2 chambers, high multiplier.
