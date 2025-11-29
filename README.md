@@ -57,3 +57,17 @@
   - revolver: 6 chambers.
   - pepperBox: 4 chambers.
   - DoubleBarrel: 2 chambers, high multiplier.
+  ### Relationships
+  - risklessRoulette uses Player and Gun objects.
+  - Gun subclasses inherit from Gun.
+  - InoutChecker assists the main program with input validation.
+  #
+  # Future Improvements
+  - Add more gun types with different chamber counts and multipliers.
+  - Add sound effects (like clicks and gunshots) to make the game feel more alive.
+  - Add animations if turned into a GUI version later.
+  - Add difficulty levels (easy, normal, hard) that affect multiplier and death chance.
+  - Add special events. like bonus rounds or double multiplier rounds.
+  - Improve error handling to make the game more beginner-friendly.
+  - Add a statistics page that shows number of games played, wins, deaths, highest balance, etc.
+  #
