@@ -71,3 +71,8 @@
   - Improve error handling to make the game more beginner-friendly.
   - Add a statistics page that shows number of games played, wins, deaths, highest balance, etc.
   #
+  ## References
+  - Tutorials from class.
+  - Online guides for OOP concepts.
+  - Classroom materials.
+  - Help from our Professor.
