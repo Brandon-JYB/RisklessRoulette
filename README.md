@@ -32,4 +32,10 @@
   | Pepperbox Pistol      | 4             | x2.5 per bullet | ⚠️ High risk                               |
   | Double Barrel Shotgun | 2             | x3.5 per bullet | 🔥 Very high risk                          |
 
-  # 
+  # OOP Concepts Applied
+  
+  ### Encapsulation
+  - Player Class: Keeps player name, balance, and life status private.
+  - Gun Class & Subclasses: Store gun-related data (name, chambers, multipliers) privately.
+  - Input Validation: Handled entirely by the InputChecker utiility class.
+  ### Inheritance
