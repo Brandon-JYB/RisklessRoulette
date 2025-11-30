@@ -61,7 +61,27 @@
   - risklessRoulette uses Player and Gun objects.
   - Gun subclasses inherit from Gun.
   - InoutChecker assists the main program with input validation.
-  #
+  
+  # How to Run the Program
+  ### 1. Open Project Folder
+  Open your terminal, Command Prompt, or Visual Studio Code.
+   - VS Code: Click file -> open folder.
+   - Select the folder containing your src folder.
+  #### Your folder structure should look like this:
+  project-folder/src/risklessRoulette.java/guns/player/util/
+  ### 2. VS Code Requirements
+  if you are using VS Code, ensure you have the following installed:
+   - Extension Pack for Java (by Microsoft)
+   - Java Debugger
+   - Java Development Kit (JDK) - At least JDK 17 or higher.
+  ### 3. Run the Command
+  Run the program using the following command in your terminal:
+  java risklessRoulette.java
+  ### 4. Play the Game
+  Once running, the program will display:
+   Welcome to Riskless Roulettte! You get to play without any risk!
+   Enter your name:
+  Follow the on-screen instructions to pick a gun, place a bet, and play.
   # Future Improvements
   - Add more gun types with different chamber counts and multipliers.
   - Add sound effects (like clicks and gunshots) to make the game feel more alive.
