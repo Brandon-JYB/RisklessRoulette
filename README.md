@@ -78,9 +78,9 @@
   Run the program using the following command in your terminal:
   java risklessRoulette.java
   ### 4. Play the Game
-  Once running, the program will display:
+  Once running, the program will display: <br><br>
    Welcome to Riskless Roulettte! You get to play without any risk!
-   Enter your name:
+   Enter your name: <br><br>
   Follow the on-screen instructions to pick a gun, place a bet, and play.
   # Future Improvements
   - Add more gun types with different chamber counts and multipliers.
