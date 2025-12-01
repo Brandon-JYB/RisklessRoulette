@@ -83,7 +83,8 @@
    Enter your name: <br><br>
   Follow the on-screen instructions to pick a gun, place a bet, and play.
   # Sample Output
-  
+  <img width="636" height="220" alt="Screenshot 2025-12-01 222511" src="https://github.com/user-attachments/assets/3ddd1c59-75b7-4270-a927-8a06997bec8a" />
+
   # Future Improvements
   - Add more gun types with different chamber counts and multipliers.
   - Add sound effects (like clicks and gunshots) to make the game feel more alive.
