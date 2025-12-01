@@ -88,6 +88,13 @@
   ### <img width="624" height="274" alt="Screenshot 2025-12-01 222552" src="https://github.com/user-attachments/assets/c5ee7b3f-afda-4475-9efd-edc41f0bfa78" />
   ### <img width="550" height="236" alt="Screenshot 2025-12-01 222607" src="https://github.com/user-attachments/assets/78d4e374-7f0e-435d-9a21-348582a8ead8" />
 
+  # 👥 Authors / Contributors
+| Name | GitHub Username |
+| :--- | :--- |
+| **Frances Iroll M. Fabellar** | [@noobit2](https://github.com/noobit2) |
+| **Brandon Josef Y. Bernal** | [@Brandon-JYB](https://github.com/Brandon-JYB) |
+| **Lance Kert O. Mendoza** | [@sleepingPotato17](https://github.com/sleepingPotato17) |
+  
   # Future Improvements
   - Add more gun types with different chamber counts and multipliers.
   - Add sound effects (like clicks and gunshots) to make the game feel more alive.
