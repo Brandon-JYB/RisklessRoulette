@@ -94,7 +94,14 @@
 | **Frances Iroll M. Fabellar** | [@noobit2](https://github.com/noobit2) |
 | **Brandon Josef Y. Bernal** | [@Brandon-JYB](https://github.com/Brandon-JYB) |
 | **Lance Kert O. Mendoza** | [@sleepingPotato17](https://github.com/sleepingPotato17) |
-  
+  ## 🙌 Acknowledgements
+
+This project is a labor of love (and logic) by our team. We would like to thank:
+
+* **Our Instructor, Mr. Emmanuel Charlie Enriquez**, for challenging us to apply our OOP knowledge in creative ways.
+* **StackOverflow & Java Documentation**, for being the unsung heroes during our debugging process.
+* **Our Team Members**, **Frances**, **Brandon**, and **Lance**, for the hard work and cooperation in building this risk-free gambling simulation.
+
   # Future Improvements
   - Add more gun types with different chamber counts and multipliers.
   - Add sound effects (like clicks and gunshots) to make the game feel more alive.
