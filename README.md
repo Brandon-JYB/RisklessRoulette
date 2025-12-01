@@ -82,6 +82,8 @@
    Welcome to Riskless Roulettte! You get to play without any risk!
    Enter your name: <br><br>
   Follow the on-screen instructions to pick a gun, place a bet, and play.
+  # Sample Output
+  
   # Future Improvements
   - Add more gun types with different chamber counts and multipliers.
   - Add sound effects (like clicks and gunshots) to make the game feel more alive.
