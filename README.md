@@ -83,7 +83,10 @@
    Enter your name: <br><br>
   Follow the on-screen instructions to pick a gun, place a bet, and play.
   # Sample Output
-  <img width="636" height="220" alt="Screenshot 2025-12-01 222511" src="https://github.com/user-attachments/assets/3ddd1c59-75b7-4270-a927-8a06997bec8a" />
+  ### <img width="636" height="220" alt="Screenshot 2025-12-01 222511" src="https://github.com/user-attachments/assets/3ddd1c59-75b7-4270-a927-8a06997bec8a" />
+  ### <img width="493" height="268" alt="Screenshot 2025-12-01 222544" src="https://github.com/user-attachments/assets/bac8890d-fe48-4489-93b9-05b9be5a26f1" />
+  ### <img width="624" height="274" alt="Screenshot 2025-12-01 222552" src="https://github.com/user-attachments/assets/c5ee7b3f-afda-4475-9efd-edc41f0bfa78" />
+  ### <img width="550" height="236" alt="Screenshot 2025-12-01 222607" src="https://github.com/user-attachments/assets/78d4e374-7f0e-435d-9a21-348582a8ead8" />
 
   # Future Improvements
   - Add more gun types with different chamber counts and multipliers.
