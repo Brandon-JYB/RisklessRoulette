@@ -59,13 +59,29 @@ public class risklessRoulette {
                 while (cont) { // Continous play
                     if (gunChoice == 1) { // Desert Eagle
                         System.out.println("Bang! The " + gun.getGunName() + " fired!\n");
-                        System.out.println("You're dead! **** pistol yan, anong expected mo?");
+                        
+                        try { // Pause for dramatic effect
+                            Thread.sleep(1000); // 1000 is 1 sec
+                        }
+                        catch(InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+
+                        System.out.println("You're dead! It's a pistol; you can't randomize a magazine");
                         player.setAlive(false);
                         player.subtractBalance(bet);
                         break;
                     }
                     if (gun.fire(bullet)) { // Boom headshot
                         System.out.println("The " + gun.getGunName() + " fired!\n");
+
+                        try { // Pause for dramatic effect
+                            Thread.sleep(1000); // 1000 is 1 sec
+                        }
+                        catch(InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+
                         System.out.println("The bullet went through your head. You died!");
                         player.setAlive(false);
                         player.subtractBalance(bet);
@@ -73,6 +89,15 @@ public class risklessRoulette {
                     }
                     else { // Suerte
                         double winnings = bet * gun.rewardMult(bullet);
+                        System.out.println("The " + gun.getGunName() + " fired!\n");
+
+                        try { // Pause for dramatic effect
+                            Thread.sleep(1000); // 1000 is 1 sec
+                        }
+                        catch(InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+
                         System.out.println("Click! No bullet in the chamber. You live!\n");
                         System.out.println("You won ₱" + winnings + "!");
                         player.addBalance(winnings);
